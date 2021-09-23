@@ -16,30 +16,37 @@ class BadgesList extends React.Component {
       );
     }
     return (
-      <ul className="list-unstyled">
-        {this.props.badges.map((badge) => {
-          return (
-            <li key={badge.id} className="BadgesListItem">
-              <Gravatar
-                email={badge.email}
-                alt=""
-                className="BadgesListItem__avatar"
-              />
-              <div>
-                <div>
-                  <strong>
-                    {badge.firstName} {badge.lastName}
-                  </strong>
-                </div>
-                <div className="Twitter__name">
-                  <span className="Twitter__logo"></span>@{badge.twitter}
-                </div>
-                <div>{badge.jobTitle}</div>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+      <div className="badgesList">
+        <ul className="list-unstyled">
+          {this.props.badges.map((badge) => {
+            return (
+              <li key={badge.id} className="BadgesListItem">
+                <Link
+                  to={`/badges/${badge.id}/edit`}
+                  className="text-reset text-decoration-none"
+                >
+                  <Gravatar
+                    email={badge.email}
+                    alt=""
+                    className="BadgesListItem__avatar"
+                  />
+                  <div>
+                    <div>
+                      <strong>
+                        {badge.firstName} {badge.lastName}
+                      </strong>
+                    </div>
+                    <div className="Twitter__name">
+                      <span className="Twitter__logo"></span>@{badge.twitter}
+                    </div>
+                    <div>{badge.jobTitle}</div>
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     );
   }
 }
