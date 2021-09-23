@@ -25,9 +25,9 @@ const api = {
   badges: {
     list() {
       return callApi("/badges");
-      // throw new Error("Pagina fallida");
     },
     create(badge) {
+      // throw new Error("Pagina fallida");
       return callApi(`/badges`, {
         method: "POST",
         body: JSON.stringify(badge),
