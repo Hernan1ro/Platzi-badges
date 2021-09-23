@@ -1,29 +1,12 @@
 import react, { Component } from "react";
+import Gravatar from "./Gravatar";
 
 class BadgeForm extends Component {
-  // state = {
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   jobTitle: "",
-  //   twitter: "",
-  // };
-  // handleChange = (e) => {
-  //   console.log({ name: e.target.name, value: e.target.value });
-  //   this.setState({
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-  handleClick = (e) => {
-    e.preventDefault();
-    console.log("Button was clicked");
-    console.log(this.state);
-  };
   render() {
     return (
       <div>
         <h1>New Attendant</h1>
-        <form>
+        <form onSubmit={this.props.onSubmit}>
           <div className="form-group">
             <label>First name</label>
             <input
@@ -79,7 +62,10 @@ class BadgeForm extends Component {
               value={this.props.formValues.twitter}
             />
           </div>
-          <button onClick={this.handleClick} className="btn btn-primary">
+          <button
+            onClick={this.props.onSubmit}
+            className="btn btn-primary mt-2"
+          >
             Save
           </button>
         </form>
