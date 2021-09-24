@@ -4,7 +4,7 @@ import BadgeEdit from "../pages/BadgeEdit";
 import Badges from "../pages/Badges";
 import Layout from "./Layout";
 import { BrowserRouter, Route } from "react-router-dom";
-import BadgeDetails from "../pages/BadgeDetails";
+import BadgeDetailsContainer from "../pages/BadgeDetailsContainer";
 function App() {
   return (
     <BrowserRouter>
@@ -12,7 +12,11 @@ function App() {
         <Route exact path="/badges" component={Badges} />
         <Route exact path="/badges/new" component={BadgeNew} />
         <Route exact path="/badges/:badgeId/edit" component={BadgeEdit} />
-        <Route exact path="/badges/:badgeId" component={BadgeDetails} />
+        <Route
+          exact
+          path="/badges/:badgeId"
+          component={BadgeDetailsContainer}
+        />
       </Layout>
     </BrowserRouter>
   );
